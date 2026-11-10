@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720">
+  <!-- Заглушка 960x720 -->
+  <rect width="960" height="720" fill="#cfe0f7"/>
+  <text x="480" y="382" font-family="Arial, sans-serif" font-size="68" fill="#333" text-anchor="middle">Товар 1 · 960px</text>
+</svg>

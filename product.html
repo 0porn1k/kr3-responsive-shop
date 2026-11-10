@@ -6,6 +6,8 @@
   <meta name="description" content="Подробная карточка товара: описание, характеристики и цена.">
   <title>Товар 1 — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Адаптив: строго после style.css -->
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   <header class="site-header">
@@ -58,7 +60,8 @@
     <section class="section">
       <h2 class="section__title">Характеристики</h2>
 
-      <!-- Таблица характеристик -->
+      <!-- Обёртка: скролл таблицы, а не страницы -->
+      <div class="table-wrapper">
       <table class="product-table">
         <caption class="product-table__caption">Характеристики товара</caption>
         <thead>
@@ -86,6 +89,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
   </main>
 

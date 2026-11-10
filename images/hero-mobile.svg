@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <!-- Заглушка 640x360 -->
+  <rect width="640" height="360" fill="#dbe8fb"/>
+  <text x="320" y="193" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">Hero · mobile</text>
+</svg>

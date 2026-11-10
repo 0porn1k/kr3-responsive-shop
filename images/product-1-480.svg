@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <!-- Заглушка 480x360 -->
+  <rect width="480" height="360" fill="#cfe0f7"/>
+  <text x="240" y="191" font-family="Arial, sans-serif" font-size="34" fill="#333" text-anchor="middle">Товар 1 · 480px</text>
+</svg>
