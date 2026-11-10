@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <!-- Заглушка изображения товара -->
+  <rect width="640" height="480" fill="#d8f0dc"/>
+  <text x="320" y="250" font-family="Arial, sans-serif" font-size="48" fill="#333" text-anchor="middle">Товар 2</text>
+</svg>
