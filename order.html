@@ -9,7 +9,10 @@
   <!-- Адаптив: строго после style.css -->
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body id="top">
+  <!-- Skip-link: быстрый переход к контенту с клавиатуры -->
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
@@ -29,18 +32,19 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Заявка</span>
+      <span class="breadcrumbs__current" aria-current="page">Заявка</span>
     </nav>
 
     <section class="section">
       <h1 class="section__title">Оформление заявки</h1>
-      <p class="section__text">Заполните форму, и менеджер свяжется с вами. Поля со звёздочкой обязательны.</p>
+      <p class="section__text">Заполните форму, и менеджер свяжется с вами.</p>
+      <p class="form-note" id="page-form-note">Поля, отмеченные звёздочкой (*), обязательны для заполнения.</p>
 
       <!-- Тот же блок order-form, но на отдельной странице -->
-      <form class="order-form order-form--page" action="#" method="post">
+      <form class="order-form order-form--page" action="#" method="post" aria-describedby="page-form-note">
         <div class="order-form__field">
           <label class="order-form__label" for="page-name">Имя *</label>
           <input class="order-form__input" id="page-name" name="name" type="text" minlength="2" autocomplete="given-name" required>
@@ -60,9 +64,11 @@
             type="tel"
             placeholder="+7 (900) 000-00-00"
             pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+            autocomplete="tel"
+            aria-describedby="page-phone-hint"
             required
           >
-          <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
+          <small class="order-form__hint" id="page-phone-hint">Формат: +7 (900) 000-00-00</small>
         </div>
 
         <div class="order-form__field">
@@ -103,6 +109,6 @@
     </div>
   </footer>
   <!-- Фиксированная кнопка (position: fixed) -->
-  <a class="back-to-top" href="#top" aria-label="Наверх">↑</a>
+  <a class="back-to-top" href="#top" aria-label="Наверх, к началу страницы"><span aria-hidden="true">↑</span></a>
 </body>
 </html>

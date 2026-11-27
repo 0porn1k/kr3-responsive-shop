@@ -7,8 +7,17 @@ const orderButtons = document.querySelectorAll('.product-card__button');
 // Получаем кнопку закрытия модального окна.
 const closeDialogButton = document.getElementById('close-order-dialog');
 
+// Получаем кнопку-крестик в шапке модального окна.
+const closeDialogIconButton = document.getElementById('close-order-dialog-icon');
+
 // Получаем скрытое поле, в которое будет записан выбранный товар.
 const selectedProductInput = document.getElementById('selected-product');
+
+// Сводка ошибок формы (role="alert").
+const formError = document.getElementById('order-form-error');
+
+// Кнопка, которая открыла окно: вернём на неё фокус после закрытия.
+let lastOpenButton = null;
 
 // Перебираем все кнопки «Заказать».
 orderButtons.forEach((button) => {
@@ -19,14 +28,28 @@ orderButtons.forEach((button) => {
     // Записываем название товара в скрытое поле формы.
     selectedProductInput.value = productName;
 
+    // Запоминаем кнопку для возврата фокуса.
+    lastOpenButton = button;
+
     // Открываем модальное окно.
     orderDialog.showModal();
   });
 });
 
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
+// Закрываем модальное окно по кнопке «Закрыть» и по крестику.
+[closeDialogButton, closeDialogIconButton].forEach((button) => {
+  button.addEventListener('click', () => {
+    orderDialog.close();
+  });
+});
+
+// При любом закрытии (кнопка, Esc) прячем ошибки и возвращаем фокус.
+orderDialog.addEventListener('close', () => {
+  formError.hidden = true;
+
+  if (lastOpenButton) {
+    lastOpenButton.focus();
+  }
 });
 // Получаем форму заявки.
 const orderForm = document.getElementById('order-form');
@@ -57,10 +80,16 @@ orderForm.addEventListener('submit', (event) => {
       }
     });
 
-    // Показываем стандартные сообщения браузера.
+    // Показываем текстовую сводку ошибок (озвучивается диктором).
+    formError.hidden = false;
+
+    // Показываем стандартные сообщения браузера
+    // и переводим фокус на первое ошибочное поле.
     orderForm.reportValidity();
     return;
   }
+
+  formError.hidden = true;
 
   // Показываем сообщение об успешной отправке.
   successMessage.hidden = false;

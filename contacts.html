@@ -9,7 +9,10 @@
   <!-- Адаптив: строго после style.css -->
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body id="top">
+  <!-- Skip-link: быстрый переход к контенту с клавиатуры -->
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
@@ -29,10 +32,10 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Контакты</span>
+      <span class="breadcrumbs__current" aria-current="page">Контакты</span>
     </nav>
 
     <section class="section">
@@ -42,8 +45,8 @@
       </p>
 
       <ul class="contacts-list">
-        <li class="contacts-list__item">Телефон: +7 (900) 000-00-00</li>
-        <li class="contacts-list__item">E-mail: info@example.com</li>
+        <li class="contacts-list__item">Телефон: <a href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+        <li class="contacts-list__item">E-mail: <a href="mailto:info@example.com">info@example.com</a></li>
         <li class="contacts-list__item">Адрес: г. Москва, учебный проект</li>
       </ul>
     </section>
@@ -64,6 +67,6 @@
     </div>
   </footer>
   <!-- Фиксированная кнопка (position: fixed) -->
-  <a class="back-to-top" href="#top" aria-label="Наверх">↑</a>
+  <a class="back-to-top" href="#top" aria-label="Наверх, к началу страницы"><span aria-hidden="true">↑</span></a>
 </body>
 </html>
