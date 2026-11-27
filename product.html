@@ -9,7 +9,10 @@
   <!-- Адаптив: строго после style.css -->
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body id="top">
+  <!-- Skip-link: быстрый переход к контенту с клавиатуры -->
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
@@ -29,18 +32,18 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <a class="breadcrumbs__link breadcrumbs__link--middle" href="catalog.html">Каталог</a>
-      <span class="breadcrumbs__current">Товар 1</span>
+      <span class="breadcrumbs__current" aria-current="page">Товар 1</span>
     </nav>
 
     <!-- Блок подробной карточки товара -->
     <article class="product-details">
       <div class="product-details__media">
-        <span class="product-details__badge">Хит</span>
-        <img class="product-details__image" src="images/product-1.svg" alt="Товар 1 — учебный товар" width="640" height="480">
+        <span class="product-details__badge">Хит продаж</span>
+        <img class="product-details__image" src="images/product-1.svg" alt="Товар 1 — учебный товар, вид спереди" width="640" height="480">
       </div>
 
       <div class="product-details__info">
@@ -61,9 +64,9 @@
       <h2 class="section__title">Характеристики</h2>
 
       <!-- Обёртка: скролл таблицы, а не страницы -->
-      <div class="table-wrapper">
+      <div class="table-wrapper" role="region" aria-labelledby="product-table-caption" tabindex="0">
       <table class="product-table">
-        <caption class="product-table__caption">Характеристики товара</caption>
+        <caption class="product-table__caption" id="product-table-caption">Характеристики товара</caption>
         <thead>
           <tr>
             <th class="product-table__head" scope="col">Параметр</th>
@@ -72,19 +75,19 @@
         </thead>
         <tbody>
           <tr>
-            <td class="product-table__cell">Категория</td>
+            <th class="product-table__cell product-table__cell--row" scope="row">Категория</th>
             <td class="product-table__cell">Учебный товар</td>
           </tr>
           <tr>
-            <td class="product-table__cell">Цена</td>
+            <th class="product-table__cell product-table__cell--row" scope="row">Цена</th>
             <td class="product-table__cell">1000 руб.</td>
           </tr>
           <tr>
-            <td class="product-table__cell">Наличие</td>
+            <th class="product-table__cell product-table__cell--row" scope="row">Наличие</th>
             <td class="product-table__cell">В наличии</td>
           </tr>
           <tr>
-            <td class="product-table__cell">Гарантия</td>
+            <th class="product-table__cell product-table__cell--row" scope="row">Гарантия</th>
             <td class="product-table__cell">12 месяцев</td>
           </tr>
         </tbody>
@@ -100,6 +103,6 @@
     </div>
   </footer>
   <!-- Фиксированная кнопка (position: fixed) -->
-  <a class="back-to-top" href="#top" aria-label="Наверх">↑</a>
+  <a class="back-to-top" href="#top" aria-label="Наверх, к началу страницы"><span aria-hidden="true">↑</span></a>
 </body>
 </html>

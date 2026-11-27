@@ -9,7 +9,10 @@
   <!-- Адаптив: строго после style.css -->
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
+<body id="top">
+  <!-- Skip-link: быстрый переход к контенту с клавиатуры -->
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
@@ -29,11 +32,11 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" tabindex="-1">
     <!-- Блок хлебных крошек -->
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Каталог</span>
+      <span class="breadcrumbs__current" aria-current="page">Каталог</span>
     </nav>
 
     <section class="section">
@@ -48,8 +51,8 @@
     <!-- Grid-макет: фильтры + товары -->
     <div class="catalog-layout">
       <!-- Sticky-фильтр -->
-      <aside class="catalog-filters">
-        <h2 class="catalog-filters__title">Фильтры</h2>
+      <aside class="catalog-filters" aria-labelledby="catalog-filters-title">
+        <h2 class="catalog-filters__title" id="catalog-filters-title">Фильтры</h2>
 
         <form class="filters-form" action="#" method="get">
           <fieldset class="filters-form__group">
@@ -85,35 +88,35 @@
         </form>
       </aside>
 
-      <section class="catalog-products">
-        <h2 class="catalog-products__title">Список товаров</h2>
+      <section class="catalog-products" aria-labelledby="catalog-products-title">
+        <h2 class="catalog-products__title" id="catalog-products-title">Список товаров</h2>
 
         <!-- Тот же блок product-card, что и на главной -->
         <div class="products-grid">
           <article class="product-card product-card--featured">
             <span class="product-card__badge">Хит</span>
-            <img class="product-card__image" src="images/product-1.svg" alt="Товар 1" width="640" height="480" loading="lazy">
+            <img class="product-card__image" src="images/product-1.svg" alt="Товар 1 — учебный товар-хит продаж" width="640" height="480" loading="lazy">
             <h3 class="product-card__title">Товар 1</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее<span class="visually-hidden"> о товаре 1</span></a>
           </article>
 
           <article class="product-card">
-            <img class="product-card__image" src="images/product-2.svg" alt="Товар 2" width="640" height="480" loading="lazy">
+            <img class="product-card__image" src="images/product-2.svg" alt="Товар 2 — учебный товар" width="640" height="480" loading="lazy">
             <h3 class="product-card__title">Товар 2</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее<span class="visually-hidden"> о товаре 2</span></a>
           </article>
 
           <article class="product-card product-card--discount">
             <span class="product-card__badge">Скидка</span>
-            <img class="product-card__image" src="images/product-3.svg" alt="Товар 3" width="640" height="480" loading="lazy">
+            <img class="product-card__image" src="images/product-3.svg" alt="Товар 3 — учебный товар со скидкой" width="640" height="480" loading="lazy">
             <h3 class="product-card__title">Товар 3</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
+            <a class="button button--primary product-card__button" href="product.html">Подробнее<span class="visually-hidden"> о товаре 3</span></a>
           </article>
         </div>
       </section>
@@ -127,6 +130,6 @@
     </div>
   </footer>
   <!-- Фиксированная кнопка (position: fixed) -->
-  <a class="back-to-top" href="#top" aria-label="Наверх">↑</a>
+  <a class="back-to-top" href="#top" aria-label="Наверх, к началу страницы"><span aria-hidden="true">↑</span></a>
 </body>
 </html>

@@ -19,6 +19,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Медиа не шире контейнера */
 img,
 video {
@@ -272,6 +278,11 @@ body {
 
   .section {
     scroll-margin-top: 140px;
+  }
+
+  /* Sticky-шапка не перекрывает элемент в фокусе */
+  html {
+    scroll-padding-top: 140px;
   }
 
   /* Меню в строку */
